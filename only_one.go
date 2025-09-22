@@ -13,14 +13,14 @@ func OnlyOne() error {
 	fileName := paths[len(paths)-1]
 
 	if fileName == "main" {
-		return errors.New("main file is not allowed.")
+		return errors.New("main file is not allowed")
 	}
 
 	pidFilePath := "/tmp/" + fileName + ".pid"
 	err := pidfile.Write(pidFilePath)
 
 	if errors.Is(err, pidfile.ErrProcessRunning) {
-		return errors.New("process is already running.")
+		return errors.New("process is already running")
 	}
 
 	// rewrite pidfile
