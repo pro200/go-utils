@@ -1,8 +1,9 @@
 package utils_test
 
 import (
-	"github.com/pro200/go-utils"
 	"testing"
+
+	"github.com/pro200/go-utils"
 )
 
 func TestMime(t *testing.T) {
