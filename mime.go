@@ -113,7 +113,7 @@ func ContentType(name string) string {
 	return contentType
 }
 
-func ContentTypeGroup(name string) string {
+func ContentGroup(name string) string {
 	contentType := ContentType(name)
 	return strings.Split(contentType, "/")[0]
 }
