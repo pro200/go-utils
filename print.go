@@ -24,3 +24,10 @@ func Exitf(format string, v ...any) {
 	fmt.Printf(format, v...)
 	os.Exit(0)
 }
+
+func Input(prompt string) string {
+	var input string
+	fmt.Print(prompt)
+	fmt.Scanln(&input)
+	return input
+}
