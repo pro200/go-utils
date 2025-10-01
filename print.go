@@ -25,9 +25,16 @@ func Exitf(format string, v ...any) {
 	os.Exit(0)
 }
 
-func Input(prompt string) string {
+func Input(v ...any) string {
 	var input string
-	fmt.Print(prompt)
+	fmt.Print(v...)
+	fmt.Scanln(&input)
+	return input
+}
+
+func Inputf(format string, v ...any) string {
+	var input string
+	fmt.Printf(format, v...)
 	fmt.Scanln(&input)
 	return input
 }
