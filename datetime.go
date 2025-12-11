@@ -49,11 +49,17 @@ func TimeFormat(t time.Time, layout string) string {
 
 // 날짜 문자열을 받아 time.Time으로 변환 후 layout으로 포멧팅
 // "060102", "20060102", "060102150405", "20060102150405" 중 하나의 형식을 value로 받음
-func ParseTimeFormat(str, layout string) (string, error) {
+// layout 기본값: "%Y-%m-%d %H:%M:%S"
+func ParseTimeFormat(str string, layout ...string) (string, error) {
 	t, err := ParseTime(str)
 	if err != nil {
 		return "", err
 	}
 
-	return TimeFormat(t, layout), nil
+	_layout := "2006-01-02 15:04:05" // "%Y-%m-%d %H:%M:%S"
+	if len(layout) > 0 {
+		_layout = layout[0]
+	}
+
+	return TimeFormat(t, _layout), nil
 }
