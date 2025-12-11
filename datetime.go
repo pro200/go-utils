@@ -7,7 +7,7 @@ import (
 )
 
 // "19771029"형식 받아 time.Time으로 변환
-func ParseDate(str string) (time.Time, error) {
+func ParseTime(str string) (time.Time, error) {
 	// 지원할 날짜 포맷들 (Go는 레퍼런스 타임 "Mon Jan 2 15:04:05 MST 2006" 기반)
 	layouts := []string{
 		"060102",              // yymmdd
@@ -31,7 +31,7 @@ func ParseDate(str string) (time.Time, error) {
 	return time.Time{}, fmt.Errorf("지원되지 않는 날짜 형식: %s", str)
 }
 
-func DateFormat(t time.Time, layout string) string {
+func TimeFormat(t time.Time, layout string) string {
 	replacer := strings.NewReplacer(
 		"%Y", "2006", // 4자리 연도
 		"%y", "06", // 2자리 연도
@@ -49,11 +49,11 @@ func DateFormat(t time.Time, layout string) string {
 
 // 날짜 문자열을 받아 time.Time으로 변환 후 layout으로 포멧팅
 // "060102", "20060102", "060102150405", "20060102150405" 중 하나의 형식을 value로 받음
-func ParseDateFormat(str, layout string) (string, error) {
-	t, err := ParseDate(str)
+func ParseTimeFormat(str, layout string) (string, error) {
+	t, err := ParseTime(str)
 	if err != nil {
 		return "", err
 	}
 
-	return DateFormat(t, layout), nil
+	return TimeFormat(t, layout), nil
 }
