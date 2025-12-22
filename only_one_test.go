@@ -8,6 +8,6 @@ import (
 )
 
 func TestOnlyOne(t *testing.T) {
-	err := utils.OnlyOne()
+	err := utils.OnlyOne("hello")
 	fmt.Println(err)
 }
