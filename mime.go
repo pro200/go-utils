@@ -16,7 +16,7 @@ func ContentType(name string) string {
 
 	t := mime.TypeByExtension(ext)
 	if t != "" {
-		return t
+		return strings.Split(t, ";")[0]
 	}
 
 	return defaultMime

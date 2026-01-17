@@ -7,8 +7,8 @@ import (
 )
 
 func TestMime(t *testing.T) {
-	ct := utils.ContentType("dog.jpg")
-	if ct != "image/jpeg" {
+	ct := utils.ContentType("dog.html")
+	if ct != "text/html" {
 		t.Error("Wrong result")
 	}
 }
