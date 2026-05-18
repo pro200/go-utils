@@ -1,13 +1,15 @@
 package utils_test
 
 import (
-	"fmt"
 	"testing"
 
 	"github.com/pro200/go-utils"
 )
 
 func TestOnlyOne(t *testing.T) {
-	err := utils.OnlyOne("hello")
-	fmt.Println(err)
+	cleanup, err := utils.OnlyOne("myapp")
+	if err != nil {
+		t.Error(err)
+	}
+	defer cleanup()
 }
